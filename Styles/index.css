@@ -1,0 +1,27 @@
+body {
+    font-family: Roboto;
+    background-color: rgb(227, 227, 227);
+
+}
+
+.add-myself-button {
+    padding: 40px;
+    font-family: Roboto;
+    font-size: 50px;
+    background-color: aquamarine;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.add-myself-button:hover {
+    transform: skew(-12deg);
+}
+
+.add-myself-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+}
