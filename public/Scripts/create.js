@@ -1,3 +1,10 @@
+const express = require('express');
+const app = express();
+const path = require('path');
+
+
+
+
 userObject = {
     name: "Lebang Nong",
     email: "lebangnong@gmail.com",
@@ -17,4 +24,6 @@ function addDetails() {
 document.querySelector('.js-submit-button').addEventListener('click', () => {
     addDetails();
 });
+
+
 
