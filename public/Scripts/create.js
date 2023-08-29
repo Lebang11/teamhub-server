@@ -1,29 +1,29 @@
-const express = require('express');
-const app = express();
+const USER = require('express');
+const user = USER();
 const path = require('path');
 
 
 
 
-userObject = {
+
+users = [{
     name: "Lebang Nong",
     email: "lebangnong@gmail.com",
-    prefferedName: "Lebang"
-};
-
-users = [];
-
-function addDetails() {
-    const nameBox = document.querySelector('.js-full-name');
-    const name = nameBox.value;
-    console.log("hi");
-};
+    preffered: "Lebang"
+}];
 
 
 
-document.querySelector('.js-submit-button').addEventListener('click', () => {
-    addDetails();
-});
+user.get('/', (req,res)=> {
+    res.sendFile(path.join(__dirname, '../create.html'))
+})
 
+user.post('/', (req,res) => {
+    
+    users.push(req.body)
+    console.log(users)
+})
 
+console.log(users)
 
+module.exports = user
