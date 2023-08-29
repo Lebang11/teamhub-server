@@ -6,7 +6,7 @@ const path = require('path');
 
 
 
-users = [{
+const users = [{
     name: "Lebang Nong",
     email: "lebangnong@gmail.com",
     preffered: "Lebang"
@@ -26,4 +26,4 @@ user.post('/', (req,res) => {
 
 console.log(users)
 
-module.exports = user
+module.exports = user, users
