@@ -3,6 +3,8 @@ const { default: mongoose } = require('mongoose');
 const router = Router();
 const path = require('path');
 const USER = require('../../database/Schema/User');
+const bcrypt = require('bcrypt');
+const { hashPassword } = require('../../utils/helpers')
 
 
 
@@ -21,20 +23,24 @@ router.get('/', (req,res)=> {
 })
 
 router.post('/', async (req,res) => {
-    const { name, email, preffered} = req.body;
+    const email = req.body.email;
+    let pass = req.body.password;
+    const password = hashPassword(req.body.password)
     const userDB = await USER.findOne({$or: [{email}]});
-    if (!name || !email ) {
-        res.send(400);
+    if (!password || !email ) {
+        console.log('yikes')
+        res.sendStatus(400);
+    } else if (req.body.password !== req.body.passwordConfirm) {
+        console.log('Passwords dont match')
+    } else if (pass.length <= 7) {
+        console.log('password too short')
     } else if (userDB) {
         console.log('User already Exists')
     } else {
-        const newUser = await USER.create({ name, email, preffered});
+        const newUser = await USER.create({ email, password});
         console.log(newUser);
-    }
-    
+    }  
 })
-
-
 
 
 module.exports = router;

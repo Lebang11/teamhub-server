@@ -25,7 +25,8 @@ body {
 
 .full-name-text-box,
 .email-text-box,
-.preferred-name-text-box {
+.preferred-name-text-box,
+.password-box {
     font-family: Roboto;
     padding: 20px 10px;
     width: 400px;

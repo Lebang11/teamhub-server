@@ -12,6 +12,7 @@ body {
     border: none;
     color: white;
     cursor: pointer;
+    width: 600px;
 }
 
 .add-myself-button:hover {
@@ -20,8 +21,14 @@ body {
 
 .add-myself-div {
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
-    height: 600px;
+    margin-bottom: 60px;
 }
+
+.opening-div {
+    display: flex;
+    flex-direction: column;
+    column-gap: 50px;
+    margin-top: 200px;
+}
+
