@@ -4,7 +4,8 @@ const router = Router();
 const path = require('path');
 const USER = require('../../database/Schema/User');
 const bcrypt = require('bcrypt');
-const { hashPassword } = require('../../utils/helpers')
+const { hashPassword } = require('../../utils/helpers');
+const session = require('express-session');
 
 
 
@@ -39,6 +40,8 @@ router.post('/', async (req,res) => {
     } else {
         const newUser = await USER.create({ email, password});
         console.log(newUser);
+        req.session.user = newUser.email;
+        req.session.save();
     }  
 })
 

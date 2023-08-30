@@ -19,7 +19,9 @@ router.post('/',async (req, res) => {
     if (!isValid) {
         console.log('Password not correct')
     } else if (isValid) {
-        console.log('Welcome Back!')
+        console.log('Welcome Back!');
+        req.session.user = userDB.email;
+        req.session.save();
     }
 })
 
