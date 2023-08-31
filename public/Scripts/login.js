@@ -12,12 +12,27 @@ router.get('/', (req,res)=> {
 
 router.post('/',async (req, res) => {
     const { email, password } = req.body;
-    if (!email || !password) res.send(400);
+    if (!email || !password) res.send(`
+    <a href="https://team-hub.onrender.com/">
+    <button class="submit-button back-button">Back</button>
+    </a>
+    <p>Enter valid details</p>
+    `);
     const userDB = await USER.findOne({email});
-    if (!userDB) return res.send('Password not correct');
+    if (!userDB) return res.send(`<a href="https://team-hub.onrender.com/">
+    <button class="submit-button back-button">Back</button>
+    </a>
+    <p>Password is incorrect</p>
+    `);
     const isValid = comparePassword(password, userDB.password)
     if (!isValid) {
-        res.send('Password not correct')
+        res.send(`
+        <a href="https://team-hub.onrender.com/">
+        <button class="submit-button back-button">Back</button>
+        </a>
+        <p>Password is incorrect</p>
+        `)
+
     } else if (isValid) {
         console.log('Welcome Back!');
         req.session.user = userDB;
