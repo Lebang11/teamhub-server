@@ -14,10 +14,10 @@ router.post('/',async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) res.send(400);
     const userDB = await USER.findOne({email});
-    if (!userDB) return console.log('Password not correct');
+    if (!userDB) return res.send('Password not correct');
     const isValid = comparePassword(password, userDB.password)
     if (!isValid) {
-        console.log('Password not correct')
+        res.send('Password not correct')
     } else if (isValid) {
         console.log('Welcome Back!');
         req.session.user = userDB;

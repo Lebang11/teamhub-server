@@ -31,11 +31,11 @@ router.post('/', async (req,res) => {
     if (!password || !email ) {
         res.sendStatus(400);
     } else if (pass.length <= 7) {
-        console.log('password too short')
+        res.send('password too short')
     } else if (req.body.password !== req.body.passwordConfirm) {
-        console.log('Passwords dont match')
+        res.send('Passwords dont match')
     } else if (userDB) {
-        console.log('User already Exists')
+        res.send('User already Exists')
     } else {
         const newUser = await USER.create({ username, email, password});
         console.log(newUser);
