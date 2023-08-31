@@ -29,18 +29,17 @@ router.post('/', async (req,res) => {
     const password = hashPassword(req.body.password)
     const userDB = await USER.findOne({$or: [{email}]});
     if (!password || !email ) {
-        console.log('yikes')
         res.sendStatus(400);
-    } else if (req.body.password !== req.body.passwordConfirm) {
-        console.log('Passwords dont match')
     } else if (pass.length <= 7) {
         console.log('password too short')
+    } else if (req.body.password !== req.body.passwordConfirm) {
+        console.log('Passwords dont match')
     } else if (userDB) {
         console.log('User already Exists')
     } else {
         const newUser = await USER.create({ username, email, password});
         console.log(newUser);
-        req.session.user = newUser.email;
+        req.session.user = newUser;
         req.session.save();
         res.redirect('/main');
     }  
