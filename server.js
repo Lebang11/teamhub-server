@@ -5,7 +5,8 @@ const cookieParser = require('cookie-parser');
 const MongoStore = require('connect-mongo');
 
 
-const PORT = 8080;
+
+const PORT = process.env.PORT || 3000;
 const path = require('path');
 const createPage = require('./public/Scripts/create');
 const confirmPage = require('./public/Scripts/confirmation');
