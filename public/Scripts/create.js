@@ -29,7 +29,25 @@ router.post('/', async (req,res) => {
     const password = hashPassword(req.body.password)
     const userDB = await USER.findOne({$or: [{email}]});
     if (!password || !email ) {
-        res.sendStatus(400);
+        res.send(
+                `
+        <style>
+            .back-button {
+                height: 30px;
+                background-color: rgb(0, 175, 116);
+                color: white;
+            }
+            
+            .back-button:hover {
+                background-color: rgb(255, 106, 0);
+            }
+        </style>
+        <a href="https://team-hub.onrender.com/create">
+        <button class="submit-button back-button">Back</button>
+        </a>
+        <p>Enter valid details</p>
+        `
+        )
     } else if (pass.length <= 7) {
         res.send(
             `
