@@ -13,13 +13,36 @@ router.get('/', (req,res)=> {
 router.post('/',async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) res.send(`
-    <a href="https://team-hub.onrender.com/">
+    <style>
+        .back-button {
+            height: 30px;
+            background-color: rgb(0, 175, 116);
+            color: white;
+        }
+        
+        .back-button:hover {
+            background-color: rgb(255, 106, 0);
+        }
+    </style>
+    <a href="https://team-hub.onrender.com/login">
     <button class="submit-button back-button">Back</button>
     </a>
     <p>Enter valid details</p>
     `);
     const userDB = await USER.findOne({email});
-    if (!userDB) return res.send(`<a href="https://team-hub.onrender.com/">
+    if (!userDB) return res.send(`
+    <style>
+        .back-button {
+            height: 30px;
+            background-color: rgb(0, 175, 116);
+            color: white;
+        }
+        
+        .back-button:hover {
+            background-color: rgb(255, 106, 0);
+        }
+    </style>
+    <a href="https://team-hub.onrender.com/login">
     <button class="submit-button back-button">Back</button>
     </a>
     <p>Password is incorrect</p>
@@ -27,7 +50,18 @@ router.post('/',async (req, res) => {
     const isValid = comparePassword(password, userDB.password)
     if (!isValid) {
         res.send(`
-        <a href="https://team-hub.onrender.com/">
+        <style>
+            .back-button {
+                height: 30px;
+                background-color: rgb(0, 175, 116);
+                color: white;
+            }
+            
+            .back-button:hover {
+                background-color: rgb(255, 106, 0);
+            }
+        </style>
+        <a href="https://team-hub.onrender.com/login">
         <button class="submit-button back-button">Back</button>
         </a>
         <p>Password is incorrect</p>

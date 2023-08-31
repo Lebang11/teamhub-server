@@ -31,11 +31,62 @@ router.post('/', async (req,res) => {
     if (!password || !email ) {
         res.sendStatus(400);
     } else if (pass.length <= 7) {
-        res.send('password too short')
+        res.send(
+            `
+            <style>
+                .back-button {
+                    height: 30px;
+                    background-color: rgb(0, 175, 116);
+                    color: white;
+                }
+                
+                .back-button:hover {
+                    background-color: rgb(255, 106, 0);
+                }
+            </style>
+            <a href="https://team-hub.onrender.com/create">
+            <button class="submit-button back-button">Back</button>
+            </a>
+            <p>Password is too short</p>`
+            )
     } else if (req.body.password !== req.body.passwordConfirm) {
-        res.send('Passwords dont match')
+        res.send(
+            `
+            <style>
+                .back-button {
+                    height: 30px;
+                    background-color: rgb(0, 175, 116);
+                    color: white;
+                }
+                
+                .back-button:hover {
+                    background-color: rgb(255, 106, 0);
+                }
+            </style>
+            <a href="https://team-hub.onrender.com/create">
+            <button class="submit-button back-button">Back</button>
+            </a>
+            <p>Passwords dont match</p>`
+            )
     } else if (userDB) {
-        res.send('User already Exists')
+        res.send(
+            `
+            <style>
+                .back-button {
+                    height: 30px;
+                    background-color: rgb(0, 175, 116);
+                    color: white;
+                }
+                
+                .back-button:hover {
+                    background-color: rgb(255, 106, 0);
+                }
+            </style>
+            <a href="https://team-hub.onrender.com/create">
+            <button class="submit-button back-button">Back</button>
+            </a>
+            <p>User already Exists</p>`
+            )
     } else {
         const newUser = await USER.create({ username, email, password});
         console.log(newUser);
