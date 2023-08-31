@@ -3,10 +3,11 @@ const app = express();
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const MongoStore = require('connect-mongo');
+const http = require('http');
 
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 const path = require('path');
 const createPage = require('./public/Scripts/create');
 const confirmPage = require('./public/Scripts/confirmation');
@@ -42,5 +43,6 @@ app.use((req, res, next) => {
 app.use('/main', mainPage)
 
 
+http.createServer
 app.listen(PORT, () => console.log(`Now listening at http://localhost:${PORT}/`));
 
