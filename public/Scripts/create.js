@@ -24,7 +24,7 @@ router.get('/', (req,res)=> {
 })
 
 router.post('/', async (req,res) => {
-    const email = req.body.email;
+    const {username, email} = req.body;
     let pass = req.body.password;
     const password = hashPassword(req.body.password)
     const userDB = await USER.findOne({$or: [{email}]});
@@ -38,10 +38,11 @@ router.post('/', async (req,res) => {
     } else if (userDB) {
         console.log('User already Exists')
     } else {
-        const newUser = await USER.create({ email, password});
+        const newUser = await USER.create({ username, email, password});
         console.log(newUser);
         req.session.user = newUser.email;
         req.session.save();
+        res.redirect('/main');
     }  
 })
 

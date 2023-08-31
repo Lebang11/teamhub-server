@@ -10,6 +10,7 @@ const path = require('path');
 const createPage = require('./public/Scripts/create');
 const confirmPage = require('./public/Scripts/confirmation');
 const loginPage = require('./public/Scripts/login');
+const mainPage = require('./public/Scripts/main');
 
 
 require('./database');
@@ -31,6 +32,13 @@ app.use(
 app.use('/create', createPage);
 app.use('/confirm', confirmPage);
 app.use('/login', loginPage);
+
+app.use((req, res, next) => {
+    if (req.session.user) next();
+    else res.send(401);
+})
+
+app.use('/main', mainPage)
 
 
 app.listen(PORT, () => console.log(`Now listening at http://localhost:${PORT}/`));
