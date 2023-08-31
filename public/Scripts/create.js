@@ -3,7 +3,7 @@ const { default: mongoose } = require('mongoose');
 const router = Router();
 const path = require('path');
 const USER = require('../../database/Schema/User');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const { hashPassword } = require('../../utils/helpers');
 const session = require('express-session');
 

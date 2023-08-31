@@ -4,7 +4,7 @@ const router = Router();
 const path = require('path');
 const USER = require('../../database/Schema/User');
 const { comparePassword } = require('../../utils/helpers');
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 router.get('/', (req,res)=> {
     res.sendFile(path.join(__dirname, '../login.html'))
