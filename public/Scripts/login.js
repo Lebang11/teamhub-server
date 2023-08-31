@@ -14,6 +14,25 @@ router.post('/',async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) res.send(`
     <style>
+        .submit-button {
+            font-family: Roboto;
+            font-size: 20px;
+            background-color: rgb(255, 255, 255);
+            height: 50px;
+            width: 100px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        
+        .submit-button:hover {
+            color: white;
+            background-color: aqua;
+            transform: scale(1.2);
+        }
+    
+
         .back-button {
             height: 30px;
             background-color: rgb(0, 175, 116);
@@ -32,6 +51,25 @@ router.post('/',async (req, res) => {
     const userDB = await USER.findOne({email});
     if (!userDB) return res.send(`
     <style>
+        .submit-button {
+            font-family: Roboto;
+            font-size: 20px;
+            background-color: rgb(255, 255, 255);
+            height: 50px;
+            width: 100px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        
+        .submit-button:hover {
+            color: white;
+            background-color: aqua;
+            transform: scale(1.2);
+        }
+    
+
         .back-button {
             height: 30px;
             background-color: rgb(0, 175, 116);
@@ -51,6 +89,25 @@ router.post('/',async (req, res) => {
     if (!isValid) {
         res.send(`
         <style>
+            .submit-button {
+                font-family: Roboto;
+                font-size: 20px;
+                background-color: rgb(255, 255, 255);
+                height: 50px;
+                width: 100px;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                transition: all 0.15s;
+            }
+            
+            .submit-button:hover {
+                color: white;
+                background-color: aqua;
+                transform: scale(1.2);
+            }
+        
+
             .back-button {
                 height: 30px;
                 background-color: rgb(0, 175, 116);
