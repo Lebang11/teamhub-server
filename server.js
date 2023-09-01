@@ -7,13 +7,11 @@ const http = require('http');
 const React = require('react');
 
 
-
 const PORT = 3000;
 const path = require('path');
 const createPage = require('./public/Scripts/create');
-const confirmPage = require('./public/Scripts/confirmation');
 const loginPage = require('./public/Scripts/login');
-const mainPage = require('./public/Scripts/main');
+const mainPage = require('./public/Scripts/main.js');
 
 
 require('./database');
@@ -33,7 +31,6 @@ app.use(
 );
 
 app.use('/create', createPage);
-app.use('/confirm', confirmPage);
 app.use('/login', loginPage);
 
 app.use((req, res, next) => {

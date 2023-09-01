@@ -1,14 +1,16 @@
-body {
-    font-family: Roboto;
-    background-color: rgb(227, 227, 227);
 
+* {
+    font-family: Quicksand;
+}
+
+body {
+    
 }
 
 .add-myself-button {
     padding: 40px;
-    font-family: Roboto;
-    font-size: 50px;
-    background-color: aquamarine;
+    font-size: 45px;
+    background-color: rgb(191,155,48);
     border: none;
     color: white;
     cursor: pointer;

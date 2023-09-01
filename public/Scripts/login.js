@@ -35,12 +35,12 @@ router.post('/',async (req, res) => {
 
         .back-button {
             height: 30px;
-            background-color: rgb(0, 175, 116);
+            background-color: rgb(66,69,73);
             color: white;
         }
         
         .back-button:hover {
-            background-color: rgb(255, 106, 0);
+            background-color: rgb(191,155,48);
         }
     </style>
     <a href="https://team-hub.onrender.com/login">
@@ -72,12 +72,12 @@ router.post('/',async (req, res) => {
 
         .back-button {
             height: 30px;
-            background-color: rgb(0, 175, 116);
+            background-color: rgb(66,69,73);
             color: white;
         }
         
         .back-button:hover {
-            background-color: rgb(255, 106, 0);
+            background-color: rgb(191,155,48);
         }
     </style>
     <a href="https://team-hub.onrender.com/login">
@@ -110,12 +110,12 @@ router.post('/',async (req, res) => {
 
             .back-button {
                 height: 30px;
-                background-color: rgb(0, 175, 116);
+                background-color: rgb(66,69,73);
                 color: white;
             }
             
             .back-button:hover {
-                background-color: rgb(255, 106, 0);
+                background-color: rgb(191,155,48);
             }
         </style>
         <a href="https://team-hub.onrender.com/login">
