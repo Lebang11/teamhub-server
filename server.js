@@ -44,6 +44,9 @@ app.use((req, res, next) => {
 app.use('/main', mainPage)
 
 
-http.createServer
 app.listen(PORT, () => console.log(`Now listening at https://team-hub.onrender.com/`));
+
+//Testing :
+
+//app.listen(PORT, () => console.log(`Now listening at http://localhost:3000`));
 
