@@ -1,16 +1,17 @@
 const express = require('express');
-const app = express();
+const router = express();
 const PORT = 8080;
 const path = require('path');
 const mongoose = require('mongoose');
 
 
 
-app.use(express.static(path.join(__dirname,'css')));
 
-app.listen(PORT, () => console.log(`Now listening at http://localhost:${PORT}/`));
 
-app.get('/', (req, res)=> {
-    res.sendFile(path.join(__dirname, 'index.html'));
+
+router.get('/', (req, res)=> {
+    //res.sendFile(path.join(__dirname, '../../client/src/App.js'));
     //res.sendFile(path.join(__dirname, 'index.css'))
 });
+
+module.exports = router;

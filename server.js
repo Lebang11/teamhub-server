@@ -12,6 +12,7 @@ const path = require('path');
 const createPage = require('./public/Scripts/create');
 const loginPage = require('./public/Scripts/login');
 const mainPage = require('./public/Scripts/main.js');
+const indexPage = require('./public/Scripts/index.js');
 
 
 require('./database');
@@ -30,8 +31,9 @@ app.use(
     })
 );
 
-app.use('/create', createPage);
-app.use('/login', loginPage);
+app.use(indexPage);
+app.use('/api/create', createPage);
+app.use('/api/login', loginPage);
 
 app.use((req, res, next) => {
     if (req.session.user) next();
@@ -41,9 +43,9 @@ app.use((req, res, next) => {
 app.use('/main', mainPage)
 
 
-app.listen(PORT, () => console.log(`Now listening at https://team-hub.onrender.com/`));
+//app.listen(PORT, () => console.log(`Now listening at https://team-hub.onrender.com/`));
 
 //Testing :
 
-//app.listen(PORT, () => console.log(`Now listening at http://localhost:3000`));
+app.listen(PORT, () => console.log(`Now listening at http://localhost:3000`));
 

@@ -9,24 +9,15 @@ const session = require('express-session');
 
 
 
-
-
-const users = [{
-    name: "Lebang Nong",
-    email: "lebangnong@gmail.com",
-    preffered: "Lebang"
-}];
-
-
-
 router.get('/', (req,res)=> {
-    res.sendFile(path.join(__dirname, '../create.html'))
+    res.sendStatus(200)
 })
 
 router.post('/', async (req,res) => {
     const {username, email} = req.body;
     let pass = req.body.password;
-    const password = hashPassword(req.body.password)
+    const password = hashPassword(req.body.password);
+    console.log({ username,email,password});
     const userDB = await USER.findOne({$or: [{email}]});
     if (!password || !email ) {
         res.send(
@@ -184,7 +175,7 @@ router.post('/', async (req,res) => {
         console.log(newUser);
         req.session.user = newUser;
         req.session.save();
-        res.redirect('/main');
+        res.send(200);
     }  
 })
 
