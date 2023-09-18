@@ -51,7 +51,7 @@ router.post('/', async (req,res) => {
                 background-color: rgb(191,155,48);
             }
         </style>
-        <a href="https://team-hub.onrender.com/create">
+        <a href="https://team-hub.netlify.app/create">
         <button class="submit-button back-button">Back</button>
         </a>
         <p>Enter valid details</p>
@@ -90,7 +90,7 @@ router.post('/', async (req,res) => {
                     background-color: rgb(191,155,48);
                 }
             </style>
-            <a href="https://team-hub.onrender.com/create">
+            <a href="https://team-hub.netlify.app/create">
             <button class="submit-button back-button">Back</button>
             </a>
             <p>Password is too short</p>`
@@ -127,7 +127,7 @@ router.post('/', async (req,res) => {
                     background-color: rgb(191,155,48);
                 }
             </style>
-            <a href="https://team-hub.onrender.com/create">
+            <a href="https://team-hub.netlify.app/create">
             <button class="submit-button back-button">Back</button>
             </a>
             <p>Passwords dont match</p>`
@@ -165,7 +165,7 @@ router.post('/', async (req,res) => {
                     background-color: rgb(191,155,48);
                 }
             </style>
-            <a href="https://team-hub.onrender.com/create">
+            <a href="https://team-hub.netlify.app/create">
             <button class="submit-button back-button">Back</button>
             </a>
             <p>User already Exists</p>`

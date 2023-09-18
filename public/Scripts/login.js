@@ -43,7 +43,7 @@ router.post('/',async (req, res) => {
             background-color: rgb(191,155,48);
         }
     </style>
-    <a href="https://team-hub.onrender.com/login">
+    <a href="https://team-hub.netlify.app/login">
     <button class="submit-button back-button">Back</button>
     </a>
     <p>Enter valid details</p>
@@ -80,7 +80,7 @@ router.post('/',async (req, res) => {
             background-color: rgb(191,155,48);
         }
     </style>
-    <a href="https://team-hub.onrender.com/login">
+    <a href="https://team-hub.netlify.app/login">
     <button class="submit-button back-button">Back</button>
     </a>
     <p>Password is incorrect</p>
@@ -118,7 +118,7 @@ router.post('/',async (req, res) => {
                 background-color: rgb(191,155,48);
             }
         </style>
-        <a href="https://team-hub.onrender.com/login">
+        <a href="https://team-hub.netlify.app/login">
         <button class="submit-button back-button">Back</button>
         </a>
         <p>Password is incorrect</p>
@@ -128,7 +128,7 @@ router.post('/',async (req, res) => {
         console.log('Welcome Back!');
         req.session.user = userDB;
         req.session.save();
-        res.redirect('/main');
+        res.redirect('https://team-hub.netlify.app/main');
     }
 })
 
