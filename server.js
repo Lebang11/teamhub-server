@@ -47,16 +47,15 @@ app.use((req, res, next) => {
 app.use('/api/main', mainPage)
 
 
+const createURL = "https://team-hub.onrender.com/create"
+const mainURL = "https://team-hub.onrender.com"
 app.listen(PORT, () => console.log(`Now listening at https://team-hub.onrender.com`));
 
 //Testing :
+// const createURL = `http://localhost:${PORT}/create`
+// const mainURL = `http://localhost:${PORT}`
+// app.listen(PORT, () => console.log(`Now listening at ${mainURL}`));
 
-// app.listen(PORT, () => console.log(`Now listening at http://localhost:3000`));
 
-//const createURL = "https://team-hub.onrender.com/create"
-//const mainURL = "https://team-hub.onrender.com"
 
-//Testing
 
-const createURL = "http://localhost:3001/create"
-const mainURL = "http://localhost:3001/"
