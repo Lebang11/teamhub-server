@@ -43,7 +43,7 @@ app.use((req, res, next) => {
 app.use('/main', mainPage)
 
 
-app.listen(PORT, () => console.log(`Now listening at https://team-hub.onrender.com/`));
+app.listen(PORT, '0.0.0.0', () => console.log(`Now listening at https://team-hub.onrender.com`));
 
 //Testing :
 
