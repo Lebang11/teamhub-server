@@ -6,6 +6,7 @@ const MongoStore = require('connect-mongo');
 const http = require('http');
 const React = require('react');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 
 const HOST = process.env.HOST || '0.0.0.0';
@@ -16,6 +17,12 @@ const loginPage = require('./public/Scripts/login');
 const mainPage = require('./public/Scripts/main.js');
 const indexPage = require('./public/Scripts/index.js');
 
+app.use((_req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    next();
+  });
+//app.use(cors);
 
 require('./database');
 
@@ -49,13 +56,10 @@ app.use('/api/main', mainPage)
 
 const createURL = "https://team-hub.onrender.com/create"
 const mainURL = "https://team-hub.onrender.com"
-app.listen(PORT, () => console.log(`Now listening at https://team-hub.onrender.com`));
+app.listen(PORT, () => console.log(`Now listening at ${mainURL}`));
 
 //Testing :
 // const createURL = `http://localhost:${PORT}/create`
 // const mainURL = `http://localhost:${PORT}`
 // app.listen(PORT, () => console.log(`Now listening at ${mainURL}`));
-
-
-
 

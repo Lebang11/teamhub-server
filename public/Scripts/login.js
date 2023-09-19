@@ -125,10 +125,10 @@ router.post('/',async (req, res) => {
         `)
 
     } else if (isValid) {
-        console.log('Welcome Back!');
         req.session.user = userDB;
         req.session.save();
-        res.redirect('https://team-hub.netlify.app/main');
+        console.log('Welcome Back!', userDB.username);
+        res.json({"message": "Welcome", "token": userDB.id});
     }
 })
 
