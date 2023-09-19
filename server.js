@@ -8,7 +8,8 @@ const React = require('react');
 const bodyParser = require('body-parser');
 
 
-const PORT = 3000;
+const HOST = process.env.HOST || '0.0.0.0';
+const PORT = process.env.PORT || 3000;
 const path = require('path');
 const createPage = require('./public/Scripts/create');
 const loginPage = require('./public/Scripts/login');
@@ -46,11 +47,11 @@ app.use((req, res, next) => {
 app.use('/api/main', mainPage)
 
 
-//app.listen(PORT, () => console.log(`Now listening at https://team-hub.onrender.com/`));
+app.listen(PORT, HOST, () => console.log(`Now listening at https://team-hub.onrender.com`));
 
 //Testing :
 
-app.listen(PORT, () => console.log(`Now listening at http://localhost:3000`));
+// app.listen(PORT, () => console.log(`Now listening at http://localhost:3000`));
 
 //const createURL = "https://team-hub.onrender.com/create"
 //const mainURL = "https://team-hub.onrender.com"
