@@ -47,7 +47,7 @@ app.use((req, res, next) => {
 app.use('/api/main', mainPage)
 
 
-app.listen(PORT, HOST, () => console.log(`Now listening at https://team-hub.onrender.com`));
+app.listen(PORT, () => console.log(`Now listening at https://team-hub.onrender.com`));
 
 //Testing :
 
