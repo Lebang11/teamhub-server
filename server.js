@@ -7,7 +7,8 @@ const http = require('http');
 const React = require('react');
 
 
-const PORT = 3000;
+const HOST = process.env.HOST || '0.0.0.0';
+const PORT = process.env.PORT || 3000;
 const path = require('path');
 const createPage = require('./public/Scripts/create');
 const loginPage = require('./public/Scripts/login');
@@ -43,7 +44,7 @@ app.use((req, res, next) => {
 app.use('/main', mainPage)
 
 
-app.listen(PORT, '0.0.0.0', () => console.log(`Now listening at https://team-hub.onrender.com`));
+app.listen(PORT, HOST, () => console.log(`Now listening at https://team-hub.onrender.com`));
 
 //Testing :
 
