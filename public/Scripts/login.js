@@ -20,7 +20,7 @@ router.post('/',async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) {
         res.status(406);
-        res.json({"message": "Enter valid information"})
+        return res.json({"message": "Enter valid information"})
     //     res.send(`
     // <style>
     //     .submit-button {
@@ -61,7 +61,7 @@ router.post('/',async (req, res) => {
     const userDB = await USER.findOne({email});
     if (!userDB) {
         res.status(406)
-        res.json({"message": "Password is incorrect"})
+        return res.json({"message": "Password is incorrect"})
     //     return res.send(`
     // <style>
     //     .submit-button {
@@ -102,7 +102,7 @@ router.post('/',async (req, res) => {
     const isValid = comparePassword(password, userDB.password)
     if (!isValid) {
         res.status(406)
-        res.json({"message": "Password is incorrect"})
+        return res.json({"message": "Password is incorrect"})
     //     res.send(`
     //     <style>
     //         .submit-button {
@@ -144,7 +144,7 @@ router.post('/',async (req, res) => {
         req.session.user = userDB;
         req.session.save();
         console.log('Welcome Back!', userDB.username);
-        res.json({"message": "Welcome", "token": userDB.id});
+        return res.json({"message": "Welcome", "token": userDB.id});
     }
 })
 
