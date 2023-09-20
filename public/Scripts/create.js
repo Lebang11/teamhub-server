@@ -26,7 +26,7 @@ router.post('/', async (req,res) => {
     
     if (!password || !email ) {
         res.status(406)
-        res.json({"message": `Enter Valid Details. ${req.body.password}`})
+        res.json({"message": `Enter Valid Details. ${password}`})
     } 
     
     else if (pass.length < 5) {
