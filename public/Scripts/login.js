@@ -12,7 +12,9 @@ router.get('/', (req,res)=> {
 
 router.post('/',async (req, res) => {
     const { email, password } = req.body;
-    if (!email || !password) res.send(`
+    if (!email || !password) {
+        res.status(401);
+        res.send(`
     <style>
         .submit-button {
             font-family: Roboto;
@@ -47,9 +49,11 @@ router.post('/',async (req, res) => {
     <button class="submit-button back-button">Back</button>
     </a>
     <p>Enter valid details</p>
-    `);
+    `)};
     const userDB = await USER.findOne({email});
-    if (!userDB) return res.send(`
+    if (!userDB) {
+        res.status(401)
+        return res.send(`
     <style>
         .submit-button {
             font-family: Roboto;
@@ -84,9 +88,10 @@ router.post('/',async (req, res) => {
     <button class="submit-button back-button">Back</button>
     </a>
     <p>Password is incorrect</p>
-    `);
+    `)};
     const isValid = comparePassword(password, userDB.password)
     if (!isValid) {
+        res.status(401)
         res.send(`
         <style>
             .submit-button {
