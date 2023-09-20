@@ -20,7 +20,7 @@ router.get('/', (req,res)=> {
 router.post('/', async (req,res) => {
     const {username, email} = req.body;
     let pass = req.body.password;
-    const password = hashPassword(req.body.password);
+    const password = await hashPassword(req.body.password);
     console.log({ username,email,password});
     const userDB = await USER.findOne({$or: [{email}]});
     
@@ -45,7 +45,7 @@ router.post('/', async (req,res) => {
         
     else {
         const newUser = await USER.create({ username, email, password});
-        console.log(newUser);
+        console.log(newUser.username);
         req.session.user = newUser;
         req.session.save();
         res.status(200);
