@@ -46,12 +46,7 @@ app.use(indexPage);
 app.use('/api/create', createPage);
 app.use('/api/login', loginPage);
 
-app.use((req, res, next) => {
-    if (req.session.user) next();
-    else res.send(401);
-})
 
-app.use('/api/main', mainPage)
 
 
 const createURL = "https://team-hub.onrender.com/create"
@@ -62,4 +57,11 @@ app.listen(PORT, () => console.log(`Now listening at ${mainURL}`));
 // const createURL = `http://localhost:${PORT}/create`
 // const mainURL = `http://localhost:${PORT}`
 // app.listen(PORT, () => console.log(`Now listening at ${mainURL}`));
+
+app.use((req, res, next) => {
+    if (req.session.user) next();
+    else res.send(401);
+})
+
+app.use('/api/main', mainPage)
 
