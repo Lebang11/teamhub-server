@@ -25,7 +25,7 @@ router.post('/', async (req,res) => {
     const userDB = await USER.findOne({$or: [{email}]});
     
     if (!password || !email ) {
-        res.status(401)
+        res.status(406)
         res.json({"message": "Enter Valid Details."})
     } 
     
@@ -35,12 +35,12 @@ router.post('/', async (req,res) => {
     } 
     
     else if (req.body.password !== req.body.passwordConfirm) {
-        res.status(401)
+        res.status(406)
         res.json({"message": "Passwords don't match."})
     } 
     
     else if (userDB) {
-        res.status(401)
+        res.status(406)
         res.json({"message": "User already Exists"})    } 
         
     else {
