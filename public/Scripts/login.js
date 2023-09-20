@@ -21,17 +21,16 @@ router.post('/',async (req, res) => {
     if (!email || !password) {
         res.status(406);
         return res.json({"message": "Enter valid information"})
-   
     };
     
     const userDB = await USER.findOne({email});
-    
+
     if (!userDB) {
         res.status(406)
         return res.json({"message": "Password is incorrect"})
     };
     
-    const isValid = comparePassword(password, userDB.password)
+    const isValid = await comparePassword(password, userDB.password)
     
     if (!isValid) {
         res.status(406)
