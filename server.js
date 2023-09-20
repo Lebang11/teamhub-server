@@ -58,10 +58,10 @@ app.listen(PORT, () => console.log(`Now listening at ${mainURL}`));
 // const mainURL = `http://localhost:${PORT}`
 // app.listen(PORT, () => console.log(`Now listening at ${mainURL}`));
 
-app.use((req, res, next) => {
-    if (req.session.user) next();
-    else res.send(401);
-})
+// app.use((req, res, next) => {
+//     if (req.session.user) next();
+//     else res.send(401);
+// })
 
 app.use('/api/main', mainPage)
 
