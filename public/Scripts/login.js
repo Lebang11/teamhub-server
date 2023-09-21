@@ -39,7 +39,7 @@ router.post('/',async (req, res) => {
         req.session.user = userDB;
         req.session.save();
         console.log('Welcome Back!', userDB.username);
-        return res.json({"message": "Welcome", "token": userDB.id});
+        return res.json({"message": "Welcome", "token": userDB});
     }
 })
 
