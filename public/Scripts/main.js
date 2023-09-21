@@ -7,12 +7,12 @@ const session = require('express-session');
 
 
 router.get('/', (req, res) => {
-    if (!req.session.user) {
-        res.sendFile(path.join(__dirname, '../main.html'));
+    if (req.session.user) {    
+        res.json(req.session.user)
     } else {
-        res.send(req.session.user)
+        res.json({'message': 'No session initiated'})
     }
-     
+
 })
 
 module.exports = router;
