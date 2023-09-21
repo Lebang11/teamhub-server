@@ -26,7 +26,7 @@ router.post('/', async (req,res) => {
     
     if (!password || !email ) {
         res.status(406)
-        res.json({"message": `Enter Valid Details.`})
+        return res.json({"message": `Enter Valid Details.`})
     } 
     
     else if (pass.length < 5) {
@@ -36,12 +36,12 @@ router.post('/', async (req,res) => {
     
     else if (req.body.password !== req.body.passwordConfirm) {
         res.status(406)
-        res.json({"message": "Passwords don't match."})
+        return res.json({"message": "Passwords don't match."})
     } 
     
     else if (userDB) {
         res.status(406)
-        res.json({"message": "User already Exists"})    } 
+        return res.json({"message": "User already Exists"})    } 
         
     else {
         const newUser = await USER.create({ username, email, password});
@@ -49,7 +49,7 @@ router.post('/', async (req,res) => {
         req.session.user = newUser;
         req.session.save();
         res.status(200);
-        res.json({"message": "Welcome", "token_id": userDB.id, "token_name": userDB.username, "token_email": userDB.email})
+        return res.json({"message": "Welcome", "token_id": userDB.id, "token_name": userDB.username, "token_email": userDB.email})
     }  
 })
 
