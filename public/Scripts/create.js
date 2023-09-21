@@ -26,7 +26,7 @@ router.post('/', async (req,res) => {
     
     if (!password || !email ) {
         res.status(406)
-        res.json({"message": `Enter Valid Details. ${password}`})
+        res.json({"message": `Enter Valid Details.`})
     } 
     
     else if (pass.length < 5) {
@@ -49,7 +49,7 @@ router.post('/', async (req,res) => {
         req.session.user = newUser;
         req.session.save();
         res.status(200);
-        res.json({"message": "Welcome", "token": newUser.id})
+        res.json({"message": "Welcome", "token_id": userDB.id, "token_name": userDB.username, "token_email": userDB.email})
     }  
 })
 
