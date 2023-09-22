@@ -13,6 +13,7 @@ router.post('/', async (req, res) => {
     .then(user => {
         console.log('done');
         res.status(201);
+        res.json(newBlog);
     })
     .catch(err => console.log(err))
 })
