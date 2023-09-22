@@ -3,6 +3,10 @@ const { default: mongoose } = require('mongoose');
 const router = Router();
 const Blogs = require('../../database/Schema/Blogs');
 
+router.get('/', async (req, res) => {
+    res.send(Blogs.find({}))
+})
+
 router.post('/', async (req, res) => {
     const author = req.body.author;
     const title = req.body.title;
