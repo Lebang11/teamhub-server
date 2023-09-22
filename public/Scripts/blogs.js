@@ -2,6 +2,9 @@ const Router = require('express');
 const { default: mongoose } = require('mongoose');
 const router = Router();
 const Blogs = require('../../database/Schema/Blogs');
+const cors = require('cors');
+
+router.use(cors);
 
 router.use((_req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
