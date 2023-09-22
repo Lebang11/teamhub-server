@@ -43,7 +43,7 @@ app.use(
     })
 );
 
-app.use(indexPage);
+// app.use(indexPage);
 app.use('/api/create', createPage);
 app.use('/api/login', loginPage);
 app.use('/api/main', mainPage)
@@ -58,7 +58,7 @@ app.listen(PORT, () => console.log(`Now listening at ${mainURL}`));
 //Testing :
 // const createURL = `http://localhost:${PORT}/create`
 // const mainURL = `http://localhost:${PORT}`
-// app.listen(PORT, () => console.log(`Now listening at ${mainURL}`));
+// app.listen(PORT, () => console.log(`Now listening at http://localhost:${PORT}`));
 
 // app.use((req, res, next) => {
 //     if (req.session.user) next();

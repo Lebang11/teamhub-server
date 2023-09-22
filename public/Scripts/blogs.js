@@ -4,7 +4,8 @@ const router = Router();
 const Blogs = require('../../database/Schema/Blogs');
 
 router.get('/', async (req, res) => {
-    res.send(Blogs.find({}))
+    const data = await Blogs.find({})
+    res.send(data)
 })
 
 router.post('/', async (req, res) => {
