@@ -23,13 +23,10 @@ router.post('/', async (req, res) => {
     const text = req.body.text;
 
 
-    await Blogs.create({author, title, text})
-    .then(user => {
-        console.log('done');
-        res.status(201);
-        res.json(user);
-    })
-    .catch(err => console.log(err))
+    const newBlog = await Blogs.create({author, title, text})
+    console.log('Blog created by', author);
+    res.status(201);
+    res.json(newBlog);
 })
 
 module.exports = router;
