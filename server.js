@@ -16,7 +16,9 @@ const createPage = require('./public/Scripts/create');
 const loginPage = require('./public/Scripts/login');
 const mainPage = require('./public/Scripts/main.js');
 const indexPage = require('./public/Scripts/index.js');
-const blogPage = require('./public/Scripts/blogs')
+const blogPage = require('./public/Scripts/blogs');
+const problemsPage = require('./public/Scripts/problems');
+
 
 app.use((_req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -46,8 +48,11 @@ app.use(
 // app.use(indexPage);
 app.use('/api/create', createPage);
 app.use('/api/login', loginPage);
-app.use('/api/main', mainPage)
-app.use('/api/blogs', blogPage)
+app.use('/api/main', mainPage);
+app.use('/api/blogs', blogPage);
+app.use('/api/problems', problemsPage);
+
+
 
 
 
