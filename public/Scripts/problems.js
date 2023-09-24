@@ -18,11 +18,11 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     const author = req.body.author;
     const title = req.body.title;
-    const text = req.body.text;
+    const description = req.body.text;
     const language = req.body.language;
     const date = req.body.date;
 
-    const newProblem = await Problems.create({author, title, text, language, date})
+    const newProblem = await Problems.create({author, title, description, language, date})
     console.log('Problem created by', author);
     res.status(201);
     res.json(newProblem);
