@@ -7,6 +7,8 @@ const http = require('http');
 const React = require('react');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const fileUpload = require('express-fileupload');
+
 
 
 const HOST = process.env.HOST || '0.0.0.0';

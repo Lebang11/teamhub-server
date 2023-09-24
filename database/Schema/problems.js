@@ -5,7 +5,8 @@ ProblemsSchema = new mongoose.Schema({
     title: mongoose.SchemaTypes.String,
     language: mongoose.SchemaTypes.String,
     text: mongoose.SchemaTypes.String,
-    date: mongoose.SchemaTypes.String
+    date: mongoose.SchemaTypes.String,
+    filename: mongoose.SchemaTypes.String
 });
 
 module.exports = mongoose.model('problems', ProblemsSchema);
