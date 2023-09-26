@@ -18,10 +18,10 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     const author = req.body.author;
     const title = req.body.title;
-    const text = req.body.text;
+    const description = req.body.text;
 
 
-    const newBlog = await Blogs.create({author, title, text})
+    const newBlog = await Blogs.create({author, title, description})
     console.log('Blog created by', author);
     res.status(201);
     res.json(newBlog);
