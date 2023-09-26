@@ -11,7 +11,7 @@ router.use((_req, res, next) => {
   });
 
 router.get('/', async (req, res) => {
-    const data = await Blogs.find({})
+    const data = await Blogs.find({}).sort({'date':-1})
     res.send(data)
 })
 
