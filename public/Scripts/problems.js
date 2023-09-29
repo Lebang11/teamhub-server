@@ -22,8 +22,9 @@ router.use((_req, res, next) => {
   });
 
 router.get('/', async (req, res) => {
-    const data = await Problems.find({});
-    res.send(data);
+    // const data = await Problems.find({});
+    // res.send(data);
+    res.download('./var/data/1696016420591-prac.py')
 })
 
 router.post('/', upload.single('file'), async (req, res) => {
@@ -33,7 +34,6 @@ router.post('/', upload.single('file'), async (req, res) => {
     const language = req.body.language;
     const date = req.body.date;
     const filename = Date.now() + '-' + req.body.filename;
-    
 
     const newProblem = await Problems.create({author, title, description, language, date, filename});
     console.log('Problem created by', author);
