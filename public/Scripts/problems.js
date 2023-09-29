@@ -3,6 +3,9 @@ const { default: mongoose } = require('mongoose');
 const router = Router();
 const Problems = require('../../database/Schema/problems');
 const multer = require('multer');
+const Path = require('path');
+
+const path = Path.resolve(__dirname, './var/data/1696016420591-prac.py')
 
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
