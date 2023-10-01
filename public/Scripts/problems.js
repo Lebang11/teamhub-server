@@ -4,6 +4,7 @@ const router = Router();
 const Problems = require('../../database/Schema/problems');
 const multer = require('multer');
 const Path = require('path');
+const problems = require('../../database/Schema/problems');
 
 
 router.use((_req, res, next) => {
@@ -12,6 +13,10 @@ router.use((_req, res, next) => {
     next();
   });
 
+  router.get('/', async (req, res) => {
+   const data = await Problems.find({}).sort({'date':-1})
+   res.send(data)
+})
 
 router.post('/', async (req, res) => {
     const author = req.body.author;
