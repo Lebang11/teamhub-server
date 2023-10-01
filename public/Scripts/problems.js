@@ -21,13 +21,13 @@ router.use((_req, res, next) => {
 router.post('/', async (req, res) => {
     const author = req.body.author;
     const title = req.body.title;
-    const description = req.body.text;
+    const text = req.body.text;
     const language = req.body.language;
     const date = req.body.date;
     const filename = req.body.filename;
     const filedownload = req.body.fileDownload;
 
-    const newProblem = await Problems.create({author, title, description, language, date, filename, filedownload});
+    const newProblem = await Problems.create({author, title, text, language, date, filename, filedownload});
     console.log('Problem created by', author);
     res.status(201);
     res.json(newProblem);
