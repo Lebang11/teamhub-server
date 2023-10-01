@@ -42,18 +42,19 @@ router.post('/', upload.single('file'), (req, res) => {
      res.send({ success: false });
  });
 
-// router.post('/', upload.single('file'), async (req, res) => {
-//     const author = req.body.author;
-//     const title = req.body.title;
-//     const description = req.body.text;
-//     const language = req.body.language;
-//     const date = req.body.date;
-//     const filename = Date.now() + '-' + req.body.filename;
+router.post('/', upload.single('file'), async (req, res) => {
+    const author = req.body.author;
+    const title = req.body.title;
+    const description = req.body.text;
+    const language = req.body.language;
+    const date = req.body.date;
+    const filename = req.body.filename;
+    const filedownload = req.body.fileDownload;
 
-//     const newProblem = await Problems.create({author, title, description, language, date, filename});
-//     console.log('Problem created by', author);
-//     res.status(201);
-//     res.json(newProblem);
-// })
+    const newProblem = await Problems.create({author, title, description, language, date, filename, filedownload});
+    console.log('Problem created by', author);
+    res.status(201);
+    res.json(newProblem);
+})
 
 module.exports = router;
