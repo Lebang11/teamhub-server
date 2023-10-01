@@ -58,14 +58,14 @@ app.use('/api/problems', problemsPage);
 
 
 
-const createURL = "https://team-hub.onrender.com/create"
-const mainURL = "https://team-hub.onrender.com"
-app.listen(PORT, () => console.log(`Now listening at ${mainURL}`));
+// const createURL = "https://team-hub.onrender.com/create"
+// const mainURL = "https://team-hub.onrender.com"
+// app.listen(PORT, () => console.log(`Now listening at ${mainURL}`));
 
 //Testing :
-// const createURL = `http://localhost:${PORT}/create`
-// const mainURL = `http://localhost:${PORT}`
-// app.listen(PORT, () => console.log(`Now listening at http://localhost:${PORT}`));
+const createURL = `http://localhost:${PORT}/create`
+const mainURL = `http://localhost:${PORT}`
+app.listen(PORT, () => console.log(`Now listening at http://localhost:${PORT}`));
 
 // app.use((req, res, next) => {
 //     if (req.session.user) next();
