@@ -7,4 +7,4 @@ CommentsSchema = new mongoose.Schema({
     blogid: mongoose.SchemaTypes.String,
 });
 
-module.exports = mongoose.model('comments', ProblemsSchema);
+module.exports = mongoose.model('comments', CommentsSchema);
