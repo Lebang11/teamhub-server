@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
     const blogid = req.body.blogid;
     const date = new Date();
 
-    const newComment = await comments.create({author, text, date})
+    const newComment = await comments.create({author, text, blogid, date})
     console.log('Comment created by', author);
     res.status(201);
     res.json(newComment);
