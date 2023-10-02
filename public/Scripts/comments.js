@@ -18,6 +18,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     const author = req.body.author;
     const text = req.body.text;
+    const blogid = req.body.blogid;
     const date = new Date();
 
     const newComment = await comments.create({author, text, date})
