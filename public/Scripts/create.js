@@ -51,7 +51,7 @@ router.post('/', async (req,res) => {
         req.session.user = newUser;
         req.session.save();
         res.status(200);
-        return res.json({"message": "Welcome", "token_id": newUser.id, "token_name": newUser.username, "token_email": newUser.email})
+        return res.json({"message": "Welcome", "token_id": newUser.id, "token_name": newUser.username, "token_email": newUser.email, "token_imagename": newUser.imagename})
     }  
 })
 
