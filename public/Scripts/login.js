@@ -40,7 +40,7 @@ router.post('/',async (req, res) => {
         req.session.save();
         console.log('Welcome Back!', userDB.username);
         if (userDB.imagename) {
-            return res.json({"message": "Welcome", "token_id": userDB.id, "token_name": userDB.username, "token_email": userDB.email, "token_imagename": newUser.imagename});
+            return res.json({"message": "Welcome", "token_id": userDB.id, "token_name": userDB.username, "token_email": userDB.email, "token_imagename": userDB.imagename});
         } else {
             return res.json({"message": "Welcome", "token_id": userDB.id, "token_name": userDB.username, "token_email": userDB.email, "token_imagename": ''});
         }
