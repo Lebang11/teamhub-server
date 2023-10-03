@@ -20,12 +20,15 @@ router.get('/', async (req,res)=> {
 
 router.post('/', async (req,res) => {
     if (req.body.imagename) {
-        USER.updateOne(
-            { "_id": req.body.id}, 
+        await USER.updateOne(
+            { _id: req.body.id}, 
             {$set: {"imagename": req.body.imagename}}, 
             {upsert: true}
         )
+        const UserDB = await USER.findOne({_id: req.body.id});
+        res.json(UserDB)
     }
+    
 })
 
 
