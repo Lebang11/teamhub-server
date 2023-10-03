@@ -13,8 +13,10 @@ router.use((_req, res, next) => {
     next();
   });
 
-router.get('/', (req,res)=> {
-    res.sendStatus(200)
+router.get('/', async (req,res)=> {
+    const userDB_id = req.query.id;
+    const UserDB = await USER.findOne({_id: userDB_id});
+    res.json(UserDB)
 })
 
 router.post('/', async (req,res) => {
