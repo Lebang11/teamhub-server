@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
     const title = req.body.title;
     const description = req.body.text;
     const authorDB = await User.find({username: author});
-    const authorID = authorDB.id
+    const authorID = authorDB._id
     const date = new Date();
 
 
