@@ -20,8 +20,8 @@ router.post('/', async (req, res) => {
     const author = req.body.author;
     const title = req.body.title;
     const description = req.body.text;
-    const authorDB = await User.find({username: author});
-    const authorID = authorDB._id
+    const authorDB = await User.findOne({username: author});
+    const authorID = authorDB.id
     const date = new Date();
 
 
