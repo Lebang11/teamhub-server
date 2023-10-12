@@ -11,6 +11,7 @@ const fileUpload = require('express-fileupload');
 
 
 
+
 const HOST = process.env.HOST || '0.0.0.0';
 const PORT = process.env.PORT || 3000;
 const path = require('path');
@@ -22,6 +23,7 @@ const blogPage = require('./public/Scripts/blogs');
 const problemsPage = require('./public/Scripts/problems');
 const commentsPage = require('./public/Scripts/comments');
 const userPage = require('./public/Scripts/user');
+const emailPage = require('./public/Scripts/email')
 
 
 
@@ -58,6 +60,7 @@ app.use('/api/blogs', blogPage);
 app.use('/api/problems', problemsPage);
 app.use('/api/comments', commentsPage);
 app.use('/api/user', userPage);
+app.use('api/email', emailPage);
 
 
 
