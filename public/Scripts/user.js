@@ -13,9 +13,16 @@ router.use((_req, res, next) => {
   });
 
 router.get('/', async (req,res)=> {
-    const userDB_id = req.query.id;
-    const UserDB = await USER.findOne({_id: userDB_id});
-    res.json(UserDB)
+    const userDB_id = req.query.id
+    const userDB_email = req.query.email
+    if (userDB_id) {
+        const UserDB = await USER.findOne({_id: userDB_id});
+        res.json(UserDB)
+    } else if (userDB_email) {
+        const UserDB = await USER.findOne({email: userDB_email});
+        res.json(UserDB)
+    }
+ 
 })
 
 router.post('/', async (req,res) => {

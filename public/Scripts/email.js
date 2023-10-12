@@ -45,7 +45,7 @@ router.post('/', async (req,res) => {
         from: 'lebang.teamhub@gmail.com',
         to: req.body.email,
         subject: 'Test mail',
-        html:' <div><h1>Hi, click this button</h1><button>Click!!</button></div>'
+        html:' <div><h1>Hi, reset password here <a href=""</h1><button>Click!!</button></div>'
     };
 
     transporter.sendMail(mailDetails, function(err, data) {
