@@ -4,6 +4,7 @@ const router = Router();
 const path = require('path');
 const USER = require('../../database/Schema/User');
 const nodemailer = require('nodemailer');
+const MaskData = require('maskdata');
 
 
 
@@ -13,6 +14,17 @@ router.use((_req, res, next) => {
     next();
   });
 
+router.use((_req, res, next) => {
+    const maskPasswordOptions = {
+        // Character to mask the data. default value is '*'
+        maskWith : "*",
+        // To limit the *s in response. Also useful in hiding the password length
+        // Default max value is 16
+        maxMaskedCharacters : 16
+      };
+    next();
+});
+
 router.get('/', async (req,res)=> {
     const userDB_id = req.query.id;
     const UserDB = await USER.findOne({_id: userDB_id});
@@ -20,7 +32,15 @@ router.get('/', async (req,res)=> {
 })
 
 router.post('/', async (req,res) => {
-    let transporter = nodemailer.createTransport(transport[defaults])
+    
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'lebang-teamhub@gmail.com',
+            pass: "LebangTeam"
+        }
+    });
+
 
     transporter.verify(function(error, success) {
         if (error) {
@@ -29,6 +49,7 @@ router.post('/', async (req,res) => {
               console.log('Server is ready to take our messages');
         }
       });
+    res.json({'message': `${transporter}`})
 })
 
 
