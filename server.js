@@ -60,7 +60,7 @@ app.use('/api/blogs', blogPage);
 app.use('/api/problems', problemsPage);
 app.use('/api/comments', commentsPage);
 app.use('/api/user', userPage);
-app.use('api/email', emailPage);
+app.use('/api/email', emailPage);
 
 
 
