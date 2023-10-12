@@ -3,7 +3,8 @@ const { default: mongoose } = require('mongoose');
 const router = Router();
 const path = require('path');
 const USER = require('../../database/Schema/User');
-
+const bcrypt = require('bcryptjs');
+const { hashPassword } = require('../../utils/helpers');
 
 
 router.use((_req, res, next) => {
@@ -47,7 +48,16 @@ router.post('/', async (req,res) => {
         const UserDB = await USER.findOne({_id: req.body.id});
         res.json(UserDB)
     }
-    
+    if (req.body.password) {
+        const password = await hashPassword(req.body.password);
+        await USER.updateOne(
+            { _id: req.body.id}, 
+            {$set: {"password": password}}, 
+            {upsert: true}
+        )
+        const UserDB = await USER.findOne({_id: req.body.id});
+        res.json(UserDB)
+    }
 })
 
 

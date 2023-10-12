@@ -63,7 +63,7 @@ router.post('/', async (req,res) => {
               console.log('Server is ready to take our messages');
         }
       });
-    res.json({'message': `${transporter}`})
+    res.json({'message': `${mailDetails}`})
 })
 
 
