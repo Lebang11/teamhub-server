@@ -43,7 +43,7 @@ router.post('/', async (req,res) => {
 
     let mailDetails = {
         from: 'lebang.teamhub@gmail.com',
-        to: 'dpetersen023@student.wethinkcode.co.za',
+        to: req.body.email,
         subject: 'Test mail',
         html:' <div><h1>Hi, click this button</h1><button>Click!!</button></div>'
     };
