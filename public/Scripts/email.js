@@ -41,6 +41,20 @@ router.post('/', async (req,res) => {
         }
     });
 
+    let mailDetails = {
+        from: 'lebang.teamhub@gmail.com',
+        to: 'dpetersen023@student.wethinkcode.co.za',
+        subject: 'Test mail',
+        text: 'Testing emails on my website'
+    };
+
+    transporter.sendMail(mailDetails, function(err, data) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(`Email successfully sent to ${mailDetails.to}`)
+        }
+    })
 
     transporter.verify(function(error, success) {
         if (error) {
