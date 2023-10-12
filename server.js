@@ -23,7 +23,8 @@ const blogPage = require('./public/Scripts/blogs');
 const problemsPage = require('./public/Scripts/problems');
 const commentsPage = require('./public/Scripts/comments');
 const userPage = require('./public/Scripts/user');
-const emailPage = require('./public/Scripts/email')
+const emailPage = require('./public/Scripts/email');
+const answersPage = require('./public/Scripts/answers')
 
 
 
@@ -61,6 +62,8 @@ app.use('/api/problems', problemsPage);
 app.use('/api/comments', commentsPage);
 app.use('/api/user', userPage);
 app.use('/api/email', emailPage);
+app.use('/api/answers', answersPage);
+
 
 
 
