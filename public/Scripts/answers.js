@@ -19,13 +19,12 @@ router.post('/', async (req, res) => {
     const author = req.body.author;
     const authorID = req.body.authorID;
     const text = req.body.text;
-    const blogid = req.body.blogid;
     const filename = req.body.filename;
-    const filedownload = req.body.fileDownload;
+    const problemID = req.body.problemID;
 
     const date = new Date();
 
-    const newAnswer = await answers.create({authorID, author, text, blogid, date, filename, filedownload})
+    const newAnswer = await answers.create({authorID, author, text, problemID, date, filename, filedownload})
     console.log('Answer created by', author);
     res.status(201);
     res.json(newAnswer);

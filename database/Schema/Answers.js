@@ -6,7 +6,7 @@ AnswersSchema = new mongoose.Schema({
     text: mongoose.SchemaTypes.String,
     date: mongoose.SchemaTypes.String,
     filename: mongoose.SchemaTypes.String,
-    blogid: mongoose.SchemaTypes.String,
+    problemID: mongoose.SchemaTypes.String,
 });
 
 module.exports = mongoose.model('answers', AnswersSchema);
