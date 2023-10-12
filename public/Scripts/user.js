@@ -17,12 +17,22 @@ router.get('/', async (req,res)=> {
     const userDB_email = req.query.email
     if (userDB_id) {
         const UserDB = await USER.findOne({_id: userDB_id});
-        res.json(UserDB)
+        if (!UserDB) {
+            res.json({'message': 'User does not exist'})
+        } else {
+            res.json(UserDB)
+        }
+        
     } else if (userDB_email) {
         const UserDB = await USER.findOne({email: userDB_email});
-        res.json(UserDB)
+        if (!UserDB) {
+            res.json({'message': 'User does not exist'})
+        } else {
+            res.json(UserDB)
+        }
+        
     } else {
-        res.json({'message': 'User does not exist'})
+        res.json({'message':'Invalid params'})
     }
  
 })
