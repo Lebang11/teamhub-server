@@ -32,6 +32,9 @@ router.get('/', async (req,res)=> {
 })
 
 router.post('/', async (req,res) => {
+    const userDB_email = req.body.email;
+    const UserDB = await USER.findOne({email: userDB_email});
+    
     
     let transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -45,7 +48,7 @@ router.post('/', async (req,res) => {
         from: 'lebang.teamhub@gmail.com',
         to: req.body.email,
         subject: 'Test mail',
-        html:' <div><h1>Hi, reset password here <a href=""</h1><button>Click!!</button></div>'
+        html:` <div><h1>Hi, reset password here <a href="https://team-hub.netlify.app/reset/${UserDB._id}">Reset password</a></h1><button>Click!!</button></div>`
     };
 
     transporter.sendMail(mailDetails, function(err, data) {
