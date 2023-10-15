@@ -58,6 +58,24 @@ router.post('/', async (req,res) => {
         const UserDB = await USER.findOne({_id: req.body.id});
         res.json(UserDB)
     }
+    if (req.body.username) {
+        await USER.updateOne(
+            { _id: req.body.id}, 
+            {$set: {"username": req.body.username}}, 
+            {upsert: true}
+        )
+        const UserDB = await USER.findOne({_id: req.body.id});
+        res.json(UserDB)
+    }
+    if (req.body.email) {
+        await USER.updateOne(
+            { _id: req.body.id}, 
+            {$set: {"email": req.body.email}}, 
+            {upsert: true}
+        )
+        const UserDB = await USER.findOne({_id: req.body.id});
+        res.json(UserDB)
+    }
 })
 
 
