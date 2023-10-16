@@ -51,7 +51,7 @@ router.post('/notification', async (req,res) => {
         }
       });
 
-    UserDBs.map( (item) => {
+    UserDBs.map(async (item) => {
         let mailDetails = {
             from: 'notifications.teamhub@gmail.com',
             to: item.email,
@@ -59,7 +59,7 @@ router.post('/notification', async (req,res) => {
             html:` <div><h3>${message}</h3></div>`
         };
 
-        transporter.sendMail(mailDetails, function(err, data) {
+        await transporter.sendMail(mailDetails, function(err, data) {
             if (err) {
                 console.log(err)
             } else {
