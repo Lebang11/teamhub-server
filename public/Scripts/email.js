@@ -33,6 +33,7 @@ router.get('/', async (req,res)=> {
 
 router.post('/notification', async (req,res) => {
     const message = req.body.message;
+    const receiver = req.body.email;
     const UserDBs = await USER.find({});
 
     let transporter = nodemailer.createTransport({
@@ -51,10 +52,10 @@ router.post('/notification', async (req,res) => {
         }
       });
 
-    UserDBs.map(async (item) => {
+    if (receiver) {
         let mailDetails = {
             from: 'notifications.teamhub@gmail.com',
-            to: item.email,
+            to: receiver,
             subject: 'Sorry, please ignore',
             html:` <div><h3>${message}</h3></div>`
         };
@@ -66,8 +67,25 @@ router.post('/notification', async (req,res) => {
                 console.log(`Email successfully sent to ${mailDetails.to}`)
             }
         });
-    });
+    } else {
+        UserDBs.map(async (item) => {
+            let mailDetails = {
+                from: 'notifications.teamhub@gmail.com',
+                to: item.email,
+                subject: 'Sorry, please ignore',
+                html:` <div><h3>${message}</h3></div>`
+            };
     
+            await transporter.sendMail(mailDetails, function(err, data) {
+                if (err) {
+                    console.log(err)
+                } else {
+                    console.log(`Email successfully sent to ${mailDetails.to}`)
+                }
+            });
+        });
+    }
+
     res.json({'message': `sent to everyone :)`})
 })
 
