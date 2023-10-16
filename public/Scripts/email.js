@@ -33,7 +33,7 @@ router.get('/', async (req,res)=> {
 
 router.post('/notification', async (req,res) => {
     const message = req.body.message;
-    const receiver = req.body.email;
+    const receiver = req.body.authorID;
     const UserDBs = await USER.find({});
 
     let transporter = nodemailer.createTransport({
@@ -53,9 +53,13 @@ router.post('/notification', async (req,res) => {
       });
 
     if (receiver) {
+
+        const User = await USER.findOne({_id: receiver})
+        const userEmail = User.email;
+
         let mailDetails = {
             from: 'notifications.teamhub@gmail.com',
-            to: receiver,
+            to: userEmail,
             subject: 'Sorry, please ignore',
             html:` <div><h3>${message}</h3></div>`
         };
