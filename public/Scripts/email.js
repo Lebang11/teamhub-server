@@ -60,7 +60,7 @@ router.post('/notification', async (req,res) => {
         let mailDetails = {
             from: 'notifications.teamhub@gmail.com',
             to: userEmail,
-            subject: 'Sorry, please ignore',
+            subject: 'Team-hub notification',
             html:`<!doctype html>
             <html>
               <head>
