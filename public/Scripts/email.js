@@ -32,7 +32,7 @@ router.get('/', async (req,res)=> {
 })
 
 router.post('/notification', async (req,res) => {
-    const userDB_email = req.body.email;
+    const message = req.body.message;
     const UserDBs = await USER.find({});
 
     let transporter = nodemailer.createTransport({
@@ -56,7 +56,7 @@ router.post('/notification', async (req,res) => {
             from: 'notifications.teamhub@gmail.com',
             to: item.email,
             subject: 'Sorry, please ignore',
-            html:` <div><h3>Rick and Morty is out!></h3></div>`
+            html:` <div><h3>${message}</h3></div>`
         };
 
         transporter.sendMail(mailDetails, function(err, data) {
