@@ -31,6 +31,46 @@ router.get('/', async (req,res)=> {
     res.json(UserDB.email)
 })
 
+router.post('/notification', async (req,res) => {
+    const userDB_email = req.body.email;
+    const UserDBs = await USER.find({});
+
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'notifications.teamhub@gmail.com',
+            pass: "tswz isdj nsbt bauq"
+        }
+    });
+
+    transporter.verify(function(error, success) {
+        if (error) {
+              console.log(error);
+        } else {
+              console.log('Server is ready to take our messages');
+        }
+      });
+
+    UserDBs.map( (item) => {
+        let mailDetails = {
+            from: 'notifications.teamhub@gmail.com',
+            to: item.email,
+            subject: 'Sorry, please ignore',
+            html:` <div><h3>Rick and Morty is out!></h3></div>`
+        };
+
+        transporter.sendMail(mailDetails, function(err, data) {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log(`Email successfully sent to ${mailDetails.to}`)
+            }
+        });
+    });
+    
+    res.json({'message': `sent to everyone :)`})
+})
+
 router.post('/', async (req,res) => {
     const userDB_email = req.body.email;
     const UserDB = await USER.findOne({email: userDB_email});
