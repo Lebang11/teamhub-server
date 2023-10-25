@@ -44,11 +44,11 @@ router.post('/answers', async (req, res) => {
     const authorID = req.body.authorID;
     const text = req.body.text;
     const filename = req.body.filename;
-    const problemID = req.body.problemID;
+    const challengeID = req.body.challengeID;
 
     const date = new Date();
 
-    const newAnswer = await answers.create({challengeAuthorID, authorID, author, text, problemID, date, filename})
+    const newAnswer = await answers.create({challengeAuthorID, authorID, author, text, challengeID, date, filename})
     console.log('Answer created by', author);
     res.status(201);
     res.json(newAnswer);
