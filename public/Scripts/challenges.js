@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
     const description = req.body.description;
     const language = req.body.language;
     const date = req.body.date;
-    const answerCount = "0";
+    const answerCount = 0;
 
 
     const newChallenge = await Challenges.create({author, authorID, title, description, language, date, answerCount});
