@@ -6,7 +6,8 @@ ChallengesSchema = new mongoose.Schema({
     title: mongoose.SchemaTypes.String,
     language: mongoose.SchemaTypes.String,
     description: mongoose.SchemaTypes.String,
-    date: mongoose.SchemaTypes.String
+    date: mongoose.SchemaTypes.String,
+    answerCount: mongoose.SchemaTypes.Number
 });
 
 module.exports = mongoose.model('challenges', ChallengesSchema);

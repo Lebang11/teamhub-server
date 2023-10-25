@@ -25,9 +25,10 @@ router.post('/', async (req, res) => {
     const description = req.body.description;
     const language = req.body.language;
     const date = req.body.date;
+    const answerCount = "0";
 
 
-    const newChallenge = await Challenges.create({author, authorID, title, description, language, date});
+    const newChallenge = await Challenges.create({author, authorID, title, description, language, date, answerCount});
     console.log('Challenge created by', author);
     res.status(201);
     res.json(newChallenge);
@@ -45,6 +46,12 @@ router.post('/answers', async (req, res) => {
     const title = req.body.title;
     const filename = req.body.filename;
     const challengeID = req.body.challengeID;
+
+    await Challenges.updateOne(
+        { _id: challengeID}, 
+        {$inc: {"answerCount": 1}}, 
+        {upsert: true}
+    )
 
     const date = new Date();
 
