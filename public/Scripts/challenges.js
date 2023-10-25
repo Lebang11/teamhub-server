@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
     const date = req.body.date;
 
 
-    const newChallenge = await Challenges.create({author, authorID, title, text, language, date, filename, filedownload});
+    const newChallenge = await Challenges.create({author, authorID, title, description, language, date});
     console.log('Challenge created by', author);
     res.status(201);
     res.json(newChallenge);
