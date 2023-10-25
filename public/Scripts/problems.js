@@ -27,9 +27,10 @@ router.post('/', async (req, res) => {
     const date = req.body.date;
     const filename = req.body.filename;
     const filedownload = req.body.fileDownload;
+    const answerCount = 0;
 
 
-    const newProblem = await Problems.create({author, authorID, title, text, language, date, filename, filedownload});
+    const newProblem = await Problems.create({author, authorID, title, text, language, date, filename, filedownload, answerCount});
     console.log('Problem created by', author);
     res.status(201);
     res.json(newProblem);

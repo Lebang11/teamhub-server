@@ -2,6 +2,7 @@ const Router = require('express');
 const { default: mongoose } = require('mongoose');
 const router = Router();
 const answers = require('../../database/Schema/Answers')
+const Problems = require('../../database/Schema/problems')
 
 
 router.use((_req, res, next) => {
@@ -23,6 +24,12 @@ router.post('/', async (req, res) => {
     const problemID = req.body.problemID;
 
     const date = new Date();
+
+    await Problems.updateOne(
+        { _id: problemID}, 
+        {$inc: {"answerCount": 1}}, 
+        {upsert: true}
+    )
 
     const newAnswer = await answers.create({authorID, author, text, problemID, date, filename})
     console.log('Answer created by', author);
