@@ -44,6 +44,7 @@ router.post('/answered', async (req, res) => {
         {$set: {"answered": true}}, 
         {upsert: true}
     )
+    res.sendStatus(200)
 })
 
 module.exports = router;
