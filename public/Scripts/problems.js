@@ -27,13 +27,23 @@ router.post('/', async (req, res) => {
     const date = req.body.date;
     const filename = req.body.filename;
     const filedownload = req.body.fileDownload;
+    const answered = false;
     const answerCount = 0;
 
 
-    const newProblem = await Problems.create({author, authorID, title, text, language, date, filename, filedownload, answerCount});
+    const newProblem = await Problems.create({author, authorID, title, text, language, date, filename, filedownload, answerCount, answered});
     console.log('Problem created by', author);
     res.status(201);
     res.json(newProblem);
+});
+
+router.post('/answered', async (req, res) => {
+    const problemID = req.body.problemID;
+    await Problems.updateOne(
+        { _id: problemID}, 
+        {$set: {"answered": true}}, 
+        {upsert: true}
+    )
 })
 
 module.exports = router;

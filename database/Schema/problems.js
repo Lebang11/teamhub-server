@@ -8,7 +8,8 @@ ProblemsSchema = new mongoose.Schema({
     text: mongoose.SchemaTypes.String,
     date: mongoose.SchemaTypes.String,
     filename: mongoose.SchemaTypes.String,
-    answerCount: mongoose.SchemaTypes.Number
+    answerCount: mongoose.SchemaTypes.Number,
+    answered: mongoose.SchemaTypes.Boolean
 });
 
 module.exports = mongoose.model('problems', ProblemsSchema);
