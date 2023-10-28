@@ -21,11 +21,12 @@ router.post('/', async (req, res) => {
     const title = req.body.title;
     const description = req.body.text;
     const authorDB = await User.findOne({username: author});
-    const authorID = authorDB.id
+    const authorID = authorDB.id;
+    const commentCount = 0;
     const date = new Date();
 
 
-    const newBlog = await Blogs.create({author, title, description, date, authorID})
+    const newBlog = await Blogs.create({author, title, description, date, authorID, commentCount})
     console.log('Blog created by', author, ' with ID: ', authorID);
     res.status(201);
     res.json(newBlog);
