@@ -79,7 +79,7 @@ router.post('/', async (req,res) => {
     if (req.body.about) {
         await USER.updateOne(
             { _id: req.body.id}, 
-            {$set: {"about": `https://github.com/${req.body.about}`}}, 
+            {$set: {"about": req.body.about}}, 
             {upsert: true}
         )
         const UserDB = await USER.findOne({_id: req.body.id});
