@@ -85,6 +85,24 @@ router.post('/', async (req,res) => {
         const UserDB = await USER.findOne({_id: req.body.id});
         res.json(UserDB)
     }
+    if (req.body.github) {
+        await USER.updateOne(
+            { _id: req.body.id}, 
+            {$set: {"github": req.body.github}}, 
+            {upsert: true}
+        )
+        const UserDB = await USER.findOne({_id: req.body.id});
+        res.json(UserDB)
+    }
+    if (req.body.discord) {
+        await USER.updateOne(
+            { _id: req.body.id}, 
+            {$set: {"discord": req.body.discord}}, 
+            {upsert: true}
+        )
+        const UserDB = await USER.findOne({_id: req.body.id});
+        res.json(UserDB)
+    }
 })
 
 
