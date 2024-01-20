@@ -7,7 +7,8 @@ UserSchema = new mongoose.Schema({
     imagename: mongoose.SchemaTypes.String,
     about: mongoose.SchemaTypes.String,
     github: mongoose.SchemaTypes.String,
-    discord: mongoose.SchemaTypes.String
+    discord: mongoose.SchemaTypes.String,
+    linkedin: mongoose.SchemaTypes.String
 });
 
 module.exports = mongoose.model('users', UserSchema);

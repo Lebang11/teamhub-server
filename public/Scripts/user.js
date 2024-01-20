@@ -103,6 +103,15 @@ router.post('/', async (req,res) => {
         const UserDB = await USER.findOne({_id: req.body.id});
         res.json(UserDB)
     }
+    if (req.body.linkedin) {
+        await USER.updateOne(
+            { _id: req.body.id}, 
+            {$set: {"linkedin": req.body.linkedin}}, 
+            {upsert: true}
+        )
+        const UserDB = await USER.findOne({_id: req.body.id});
+        res.json(UserDB)
+    }
 })
 
 
