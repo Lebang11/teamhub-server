@@ -54,6 +54,10 @@ app.use(
     })
 );
 
+app.get('/', (req, res) => {
+    res.sendStatus(200);
+})
+
 // app.use(indexPage);
 app.use('/api/create', createPage);
 app.use('/api/login', loginPage);
@@ -65,13 +69,6 @@ app.use('/api/user', userPage);
 app.use('/api/email', emailPage);
 app.use('/api/answers', answersPage);
 app.use('/api/challenges', challengesPage);
-
-
-
-
-
-
-
 
 
 const createURL = "https://team-hub.onrender.com/create"
