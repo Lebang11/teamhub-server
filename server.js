@@ -9,12 +9,11 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const fileUpload = require('express-fileupload');
 
-
+require('dotenv').config();
 
 
 const HOST = process.env.HOST || '0.0.0.0';
 const PORT = process.env.PORT || 3000;
-const path = require('path');
 const createPage = require('./public/Scripts/create');
 const loginPage = require('./public/Scripts/login');
 const mainPage = require('./public/Scripts/main.js');
@@ -71,19 +70,7 @@ app.use('/api/answers', answersPage);
 app.use('/api/challenges', challengesPage);
 
 
-const createURL = "https://team-hub.onrender.com/create"
 const mainURL = "https://team-hub.onrender.com"
 app.listen(PORT, () => console.log(`Now listening at ${mainURL}`));
-
-// Testing :
-// const createURL = `http://localhost:${PORT}/create`
-// const mainURL = `http://localhost:${PORT}`
-// app.listen(PORT, () => console.log(`Now listening at http://localhost:${PORT}`));
-
-// app.use((req, res, next) => {
-//     if (req.session.user) next();
-//     else res.send(401);
-// })
-
 
 
