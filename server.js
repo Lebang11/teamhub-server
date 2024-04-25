@@ -10,17 +10,17 @@ require('dotenv').config();
 
 const HOST = process.env.HOST || '0.0.0.0';
 const PORT = process.env.PORT || 3000;
-const createPage = require('../public/Scripts/create.js');
-const loginPage = require('../public/Scripts/login.js');
-const mainPage = require('../public/Scripts/main.js');
-const indexPage = require('../public/Scripts/index.js');
-const blogPage = require('../public/Scripts/blogs.js');
-const problemsPage = require('../public/Scripts/problems.js');
-const commentsPage = require('../public/Scripts/comments.js');
-const userPage = require('../public/Scripts/user.js');
-const emailPage = require('../public/Scripts/email.js');
-const answersPage = require('../public/Scripts/answers.js');
-const challengesPage = require('../public/Scripts/challenges.js')
+const createPage = require('./public/Scripts/create.js');
+const loginPage = require('./public/Scripts/login.js');
+const mainPage = require('./public/Scripts/main.js');
+const indexPage = require('./public/Scripts/index.js');
+const blogPage = require('./public/Scripts/blogs.js');
+const problemsPage = require('./public/Scripts/problems.js');
+const commentsPage = require('./public/Scripts/comments.js');
+const userPage = require('./public/Scripts/user.js');
+const emailPage = require('./public/Scripts/email.js');
+const answersPage = require('./public/Scripts/answers.js');
+const challengesPage = require('./public/Scripts/challenges.js')
 
 
 
@@ -31,7 +31,7 @@ app.use((_req, res, next) => {
   });
 //app.use(cors);
 
-require('../database/index.js');
+require('./database/index.js');
 
 app.use(express.static("public"))
 app.use(bodyParser.urlencoded({extended: true}));
@@ -69,4 +69,5 @@ app.use('/api/challenges', challengesPage);
 const mainURL = "https://team-hub.onrender.com"
 app.listen(PORT, () => console.log(`Now listening at ${mainURL}`));
 
+module.exports = app;
 
