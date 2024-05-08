@@ -20,7 +20,8 @@ const commentsPage = require('./public/Scripts/comments.js');
 const userPage = require('./public/Scripts/user.js');
 const emailPage = require('./public/Scripts/email.js');
 const answersPage = require('./public/Scripts/answers.js');
-const challengesPage = require('./public/Scripts/challenges.js')
+const challengesPage = require('./public/Scripts/challenges.js');
+const gamersPage = require('./public/Scripts/gaming.js');
 
 
 
@@ -64,6 +65,8 @@ app.use('/api/user', userPage);
 app.use('/api/email', emailPage);
 app.use('/api/answers', answersPage);
 app.use('/api/challenges', challengesPage);
+app.use('/api/gamers', gamersPage);
+
 
 
 const mainURL = "https://team-hub.onrender.com"
